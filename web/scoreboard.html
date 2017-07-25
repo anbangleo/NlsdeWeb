@@ -6,14 +6,18 @@ post_scripts:
  - js/scoreboard.js
 startup_functions:
 ---
-
-<script type="text/template" id="scoreboard-teamscore-template">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/i18next.js"></script>
+</head>
+<template id="scoreboard-teamscore-template">
   <div class="pull-right">
     <h3>Score: <strong><%= teamscore%></strong></h3>
   </div>
-</script>
+</template>
 
-<script type="text/template" id="scoreboard-tabs-template">
+<template id="scoreboard-tabs-template">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#public">Public</a></li>
     <% if(data.groups.length > 0) { %>
@@ -33,9 +37,9 @@ startup_functions:
       </div>
     <% }); %>
   </div>
-</script>
+</template>
 
-<script type="text/template" id="scoreboard-template">
+<template id="scoreboard-template">
   <% if(!($.isEmptyObject(scoreboard))) { %>
     <table class="table" class="scoreboard-table">
       <thead>
@@ -62,9 +66,10 @@ startup_functions:
       <p class="text-center">No teams have scored any points yet.</p>
     </pre>
   <% } %>
-</script>
+</template>
 
 <div class="container">
   <div id="scoreboard-teamscore"></div>
   <div id="scoreboard-tabs"></div>
 </div>
+<script src="./js/translate.js"></script>

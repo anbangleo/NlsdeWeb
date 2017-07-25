@@ -6,8 +6,12 @@ post_scripts:
 startup_functions:
  - redirectIfNotLoggedIn()
 ---
-
-<script type="text/template" id="shell-account-credentials-template">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/i18next.js"></script>
+</head>
+<template id="shell-account-credentials-template">
   <div class="well">
     <p class="text-center">
       Username: <%- account.username %> Password: <%- account.password %> | ssh <%- account.username %>@<%- account.hostname %> -p <%- account.port %>
@@ -16,7 +20,7 @@ startup_functions:
   <div class="alert alert-info text-center">
     The password will not be displayed as you type it in.
   </div>
-</script>
+</template>
 
 <div class="container">
   <div class="row">
@@ -27,3 +31,4 @@ startup_functions:
   </div>
 </div>
 
+<script src="./js/translate.js"></script>

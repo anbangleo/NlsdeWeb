@@ -2,13 +2,21 @@
 layout: default
 title: News
 ---
-<div class="container">    
-        {% for post in site.posts %}           
-            <h2>
-                {{ post.title }}
-            </h2>
-            {{ post.content }}        
-        {% endfor %}
-     <hr />
-    <p class="rss-subscribe">subscribe <a href="{{ "feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-</div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/i18next.js"></script>
+</head>
+<body id="body_news">
+    <div class="container">
+            {% for post in site.posts %}
+                <h2>
+                    {{ post.title }}
+                </h2>
+                {{ post.content }}
+            {% endfor %}
+         <hr />
+        <p class="rss-subscribe">subscribe <a href="{{ "feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    </div>
+    <script src="./js/translate.js"></script>
+</body>
