@@ -78,7 +78,9 @@ i18next.init({
                 ")":"）。",
                 "SeeExplanation":"说明如下：",
                 "Achievements":"成就",
-                "YouCurrentlyHave":"你目前没有任何成就。通过成功解决挑战和问题你可以获得成就。"
+                "YouCurrentlyHave":"你目前没有任何成就。通过成功解决挑战和问题你可以获得成就。",
+                //About
+                "ThisIsAbout":"北京航空航天大学软件开发环境国家重点实验室",
             }
         },
     }
@@ -122,9 +124,13 @@ function updateContent() {
     //index
     $("#body_index h2").html(i18next.t('register'));
     //news
-    //$("#body_news p").contents()[0].html(i18next.t('sub'));
-    $("#body_news p").contents()[0].replaceWith(i18next.t('sub'));
-    $("#body_news a").html(i18next.t('via'));
+    //replaceWith
+    //1.$(#body_news p).contents()[0].replaceWith('')
+    //2.$(#body_news p).contents()[0].textContext()=""
+    $("#body_news p").contents().eq(0).replaceWith(i18next.t('sub'));
+    $("#body_news p").children().html(i18next.t('via'));
+    //$("#body_news a").html(i18next.t('via'));
+   // $("#body_news p").text(i18next.t('sub'));
     //Problems
     $("#problem-template").contents().find("li a:eq(0)").html(i18next.t('Solve'));
     $("#problem-template").contents().find("li a:eq(1)").html(i18next.t('Hint'));
@@ -155,19 +161,21 @@ function updateContent() {
     $("#body_team #group-info-template").contents().find(".sr-only:eq(0)").html(i18next.t('Classname'));
     $("#body_team #group-info-template").contents().find(".sr-only:eq(1)").html(i18next.t('Teacher'));
     $("#body_team #group-info-template").contents().find("button").html(i18next.t('Join'));
-    $("#body_team #team-info-template").contents().find("h3").contents()[0].replaceWith(i18next.t('Team'));
-    $("#body_team #team-info-template").contents().find("p:eq(0)").contents()[0].replaceWith(i18next.t('Passphrase'));
+    $("#body_team #team-info-template").contents().find("h3").contents()[0].textContent=i18next.t('Team');
+    $("#body_team #team-info-template").contents().find("p:eq(0)").contents()[0].textContent=i18next.t('Passphrase');
     $("#body_team #team-info-template").contents().find("p:eq(1)").html(i18next.t('Member'));
-    $("#body_team #team-info-template").contents().find("p:eq(2)").contents()[0].reaplaceWith(i18next.t('YouMayHave'));
-    $("#body_team #team-info-template").contents().find("p:eq(2)").contents()[2].reaplaceWith(i18next.t('OnYourTeam'));
+    $("#body_team #team-info-template").contents().find("p:eq(2)").contents()[0].textContent=i18next.t('YouMayHave');
+    $("#body_team #team-info-template").contents().find("p:eq(2)").contents()[2].textContent=i18next.t('OnYourTeam');
     $("#body_team #team-info-template").contents().find("p:eq(3)").html(i18next.t('NewTeamMembers'));
     $("#body_team #team-info-template").contents().find("p:eq(4)").html(i18next.t('YourTeamIs'));
     $("#body_team #team-info-template").contents().find("p:eq(5)").html(i18next.t('YourTeamIsE'));
-    $("#body_team #team-info-template").contents().find("p:eq(6)").content()[0].replaceWith(i18next.t('YourTeamIsI'));
-    $("#body_team #team-info-template").contents().find("p:eq(6)").content()[2].replaceWith(i18next.t(')'));
+    $("#body_team #team-info-template").contents().find("p:eq(6)").contents()[0].textContent=i18next.t('YourTeamIsI');
+    $("#body_team #team-info-template").contents().find("p:eq(6)").contents()[2].textContent=i18next.t(')');
     $("#body_team #team-info-template").contents().find("p:eq(6) a").html(i18next.t('SeeExplanation'));
     $("#body_team #achievement-info-template").contents().find("h3").html(i18next.t('Achievements'));
     $("#body_team #achievement-info-template").contents().find("td").html(i18next.t('YouCurrentlyHave'));
+    //About
+    $("#about_state").html(i18next.t('ThisIsAbout'));
 
 
 
